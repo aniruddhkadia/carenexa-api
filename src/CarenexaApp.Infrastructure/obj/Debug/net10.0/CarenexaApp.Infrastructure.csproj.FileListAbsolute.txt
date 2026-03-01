@@ -1,0 +1,17 @@
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net10.0\CarenexaApp.Infrastructure.deps.json
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net10.0\CarenexaApp.Infrastructure.dll
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net10.0\CarenexaApp.Infrastructure.pdb
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net10.0\CarenexaApp.Application.dll
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net10.0\CarenexaApp.Domain.dll
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net10.0\CarenexaApp.Application.pdb
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net10.0\CarenexaApp.Domain.pdb
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net10.0\CarenexaApp.Infrastructure.csproj.AssemblyReference.cache
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net10.0\CarenexaApp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net10.0\CarenexaApp.Infrastructure.AssemblyInfoInputs.cache
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net10.0\CarenexaApp.Infrastructure.AssemblyInfo.cs
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net10.0\CarenexaApp.Infrastructure.csproj.CoreCompileInputs.cache
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net10.0\Carenexa.A71B429F.Up2Date
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net10.0\CarenexaApp.Infrastructure.dll
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net10.0\refint\CarenexaApp.Infrastructure.dll
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net10.0\CarenexaApp.Infrastructure.pdb
+D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net10.0\ref\CarenexaApp.Infrastructure.dll
