@@ -14,6 +14,12 @@ public interface IAppDbContext
     DbSet<AuditLog> AuditLogs { get; }
     DbSet<InsuranceClaim> InsuranceClaims { get; }
     DbSet<RefreshToken> RefreshTokens { get; }
+    
+    // Phase 4 & 5
+    DbSet<Medicine> Medicines { get; }
+    DbSet<DoctorFavourite> DoctorFavourites { get; }
+    DbSet<VisitTemplate> VisitTemplates { get; }
+
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

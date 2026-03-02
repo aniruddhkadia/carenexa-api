@@ -11,6 +11,7 @@ public record AppointmentDto(
     Guid PatientId,
     string PatientName,
     DateTime AppointmentDate,
+    string Type,
     string Status,
     string Notes
 );
@@ -42,6 +43,7 @@ public class GetAppointmentsQueryHandler : IRequestHandler<GetAppointmentsQuery,
                 a.PatientId,
                 $"{a.Patient!.FirstName} {a.Patient.LastName}",
                 a.AppointmentDate,
+                a.Type.ToString(),
                 a.Status.ToString(),
                 a.Notes
             ))

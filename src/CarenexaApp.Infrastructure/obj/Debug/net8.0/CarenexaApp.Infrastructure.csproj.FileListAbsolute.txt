@@ -15,3 +15,21 @@ D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infra
 D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\refint\CarenexaApp.Infrastructure.dll
 D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\CarenexaApp.Infrastructure.pdb
 D:\01 Project\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\ref\CarenexaApp.Infrastructure.dll
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net8.0\CarenexaApp.Infrastructure.deps.json
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net8.0\CarenexaApp.Infrastructure.dll
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net8.0\CarenexaApp.Infrastructure.pdb
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net8.0\CarenexaApp.Application.dll
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net8.0\CarenexaApp.Domain.dll
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net8.0\CarenexaApp.Application.pdb
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\bin\Debug\net8.0\CarenexaApp.Domain.pdb
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\CarenexaApp.Infrastructure.csproj.AssemblyReference.cache
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\CarenexaApp.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\CarenexaApp.Infrastructure.AssemblyInfoInputs.cache
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\CarenexaApp.Infrastructure.AssemblyInfo.cs
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\CarenexaApp.Infrastructure.csproj.CoreCompileInputs.cache
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\CarenexaApp.Infrastructure.sourcelink.json
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\Carenexa.A71B429F.Up2Date
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\CarenexaApp.Infrastructure.dll
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\refint\CarenexaApp.Infrastructure.dll
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\CarenexaApp.Infrastructure.pdb
+D:\GitProjects\PatientClinic\CarenexaAppDetail\carenexa-api\src\CarenexaApp.Infrastructure\obj\Debug\net8.0\ref\CarenexaApp.Infrastructure.dll

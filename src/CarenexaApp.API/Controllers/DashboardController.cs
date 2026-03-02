@@ -18,7 +18,7 @@ public class DashboardController : ControllerBase
     }
 
     [HttpGet("summary")]
-    public async Task<IActionResult> GetSummary()
+    public async Task<IActionResult> GetSummary([FromQuery] DateTime? date)
     {
         var clinicIdClaim = User.FindFirst("ClinicId")?.Value;
         if (!Guid.TryParse(clinicIdClaim, out var clinicId))
@@ -26,7 +26,7 @@ public class DashboardController : ControllerBase
             return BadRequest("ClinicId not found in token");
         }
 
-        var result = await _mediator.Send(new GetDashboardSummaryQuery(clinicId));
+        var result = await _mediator.Send(new GetDashboardSummaryQuery(clinicId, date));
         return Ok(result);
     }
 
@@ -40,6 +40,19 @@ public class DashboardController : ControllerBase
         }
 
         var result = await _mediator.Send(new GetRecentActivityQuery(clinicId));
+        return Ok(result);
+    }
+
+    [HttpGet("completed-visits")]
+    public async Task<IActionResult> GetCompletedVisits([FromQuery] DateTime date)
+    {
+        var clinicIdClaim = User.FindFirst("ClinicId")?.Value;
+        if (!Guid.TryParse(clinicIdClaim, out var clinicId))
+        {
+            return BadRequest("ClinicId not found in token");
+        }
+
+        var result = await _mediator.Send(new GetDailyCompletedVisitsQuery(clinicId, date));
         return Ok(result);
     }
 }

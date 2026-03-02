@@ -19,7 +19,7 @@ public class MedicalRecordsController : ControllerBase
         _mediator = mediator;
     }
 
-    [HttpGet("patient/{patientId}")]
+    [HttpGet("{patientId}/history")]
     [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
     public async Task<IActionResult> GetPatientRecords(Guid patientId)
     {
@@ -41,13 +41,19 @@ public class MedicalRecordsController : ControllerBase
     [Authorize(Roles = "Doctor,Admin,SuperAdmin")]
     public async Task<IActionResult> CreateRecord([FromBody] CreateMedicalRecordCommand command)
     {
-        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        if (!Guid.TryParse(userIdClaim, out var doctorId))
+        var doctorIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        if (!Guid.TryParse(doctorIdClaim, out var doctorId))
         {
             return BadRequest("DoctorId not found in token");
         }
 
-        var cmdWithDoctor = command with { DoctorId = doctorId };
+        var clinicIdClaim = User.FindFirst("ClinicId")?.Value;
+        if (!Guid.TryParse(clinicIdClaim, out var clinicId))
+        {
+            return BadRequest("ClinicId not found in token");
+        }
+
+        var cmdWithDoctor = command with { DoctorId = doctorId, ClinicId = clinicId };
         var result = await _mediator.Send(cmdWithDoctor);
         
         return CreatedAtAction(nameof(GetMedicalRecordById), new { id = result }, result);

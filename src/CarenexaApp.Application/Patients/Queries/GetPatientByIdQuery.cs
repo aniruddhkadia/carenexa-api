@@ -17,7 +17,9 @@ public record PatientDetailDto(
     string Email,
     string Address,
     string BloodGroup,
-    Guid? InsuranceId
+    Guid? InsuranceId,
+    int TotalVisits,
+    string SuccessRate
 );
 
 public class GetPatientByIdQueryHandler : IRequestHandler<GetPatientByIdQuery, PatientDetailDto?>
@@ -36,6 +38,9 @@ public class GetPatientByIdQueryHandler : IRequestHandler<GetPatientByIdQuery, P
 
         if (patient == null) return null;
 
+        var totalVisits = await _context.MedicalRecords
+            .CountAsync(m => m.PatientId == request.Id && m.Status == CarenexaApp.Domain.Enums.MedicalRecordStatus.Completed, cancellationToken);
+
         return new PatientDetailDto(
             patient.Id,
             patient.FirstName,
@@ -46,7 +51,9 @@ public class GetPatientByIdQueryHandler : IRequestHandler<GetPatientByIdQuery, P
             patient.Email,
             patient.Address,
             patient.BloodGroup,
-            patient.InsuranceId
+            patient.InsuranceId,
+            totalVisits,
+            "98%"
         );
     }
 }

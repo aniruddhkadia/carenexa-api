@@ -9,6 +9,7 @@ public record UpdateAppointmentCommand(
     Guid Id,
     Guid DoctorId,
     DateTime AppointmentDate,
+    AppointmentType Type,
     AppointmentStatus Status,
     string Notes
 ) : IRequest<bool>;
@@ -30,6 +31,7 @@ public class UpdateAppointmentCommandHandler : IRequestHandler<UpdateAppointment
         if (appointment == null) return false;
 
         appointment.AppointmentDate = request.AppointmentDate;
+        appointment.Type = request.Type;
         appointment.Status = request.Status;
         appointment.Notes = request.Notes;
 

@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj",
+      "projectUniqueName": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj",
       "projectName": "CarenexaApp.Domain",
-      "projectPath": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj",
+      "projectPath": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\obj\\",
+      "outputPath": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

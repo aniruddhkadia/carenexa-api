@@ -13,6 +13,7 @@ public enum UserRole
 public enum AppointmentStatus
 {
     Booked,
+    InProgress,
     Completed,
     Cancelled
 }
@@ -30,4 +31,18 @@ public enum ClaimStatus
     Pending,
     Approved,
     Rejected
+}
+
+public enum AppointmentType
+{
+    Consultation,
+    FollowUp,
+    Procedure,
+    Emergency
+}
+
+public enum MedicalRecordStatus
+{
+    Draft,
+    Completed
 }

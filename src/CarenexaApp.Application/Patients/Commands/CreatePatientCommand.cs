@@ -1,5 +1,6 @@
 using CarenexaApp.Domain.Entities;
 using CarenexaApp.Application.Common.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using MediatR;
 
 namespace CarenexaApp.Application.Patients.Commands;
@@ -28,6 +29,17 @@ public class CreatePatientCommandHandler : IRequestHandler<CreatePatientCommand,
 
     public async Task<Guid> Handle(CreatePatientCommand request, CancellationToken cancellationToken)
     {
+        var exists = await _context.Patients
+            .AnyAsync(p => p.ClinicId == request.ClinicId && 
+                           p.FirstName.ToLower() == request.FirstName.ToLower() && 
+                           p.LastName.ToLower() == request.LastName.ToLower(), 
+                      cancellationToken);
+
+        if (exists)
+        {
+            throw new Exception("Duplicate patient is not allowed.");
+        }
+
         var patient = new Patient
         {
             ClinicId = request.ClinicId,

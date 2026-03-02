@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Application\\CarenexaApp.Application.csproj": {}
+    "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Application\\CarenexaApp.Application.csproj": {}
   },
   "projects": {
-    "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Application\\CarenexaApp.Application.csproj": {
+    "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Application\\CarenexaApp.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Application\\CarenexaApp.Application.csproj",
+        "projectUniqueName": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Application\\CarenexaApp.Application.csproj",
         "projectName": "CarenexaApp.Application",
-        "projectPath": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Application\\CarenexaApp.Application.csproj",
+        "projectPath": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Application\\CarenexaApp.Application.csproj",
         "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Application\\obj\\",
+        "outputPath": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -31,8 +31,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj": {
-                "projectPath": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj"
+              "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj": {
+                "projectPath": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj"
               }
             }
           }
@@ -89,14 +89,14 @@
         }
       }
     },
-    "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj": {
+    "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj",
+        "projectUniqueName": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj",
         "projectName": "CarenexaApp.Domain",
-        "projectPath": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj",
+        "projectPath": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\CarenexaApp.Domain.csproj",
         "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-        "outputPath": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\obj\\",
+        "outputPath": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "92lS39WuHOg=",
+  "dgSpecHash": "3cqGKLARJnA=",
   "success": true,
-  "projectFilePath": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\tests\\CarenexaApp.UnitTests\\CarenexaApp.UnitTests.csproj",
+  "projectFilePath": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\tests\\CarenexaApp.UnitTests\\CarenexaApp.UnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\coverlet.collector\\6.0.4\\coverlet.collector.6.0.4.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\microsoft.codecoverage\\17.14.1\\microsoft.codecoverage.17.14.1.nupkg.sha512",

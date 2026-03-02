@@ -73,9 +73,16 @@ public class PatientsController : ControllerBase
         }
 
         var cmdWithClinic = command with { ClinicId = clinicId };
-        var result = await _mediator.Send(cmdWithClinic);
         
-        return CreatedAtAction(nameof(GetPatientById), new { id = result }, result);
+        try 
+        {
+            var result = await _mediator.Send(cmdWithClinic);
+            return CreatedAtAction(nameof(GetPatientById), new { id = result }, result);
+        }
+        catch (Exception ex)
+        {
+            return BadRequest(ex.Message);
+        }
     }
 
     [HttpPut("{id}")]

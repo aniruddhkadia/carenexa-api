@@ -1,5 +1,4 @@
 using CarenexaApp.Application.Auth.Commands;
-using CarenexaApp.Application.Auth.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 

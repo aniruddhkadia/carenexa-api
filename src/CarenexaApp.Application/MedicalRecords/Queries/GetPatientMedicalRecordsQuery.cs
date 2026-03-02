@@ -10,10 +10,19 @@ public record MedicalRecordDto(
     Guid Id,
     string Diagnosis,
     string Prescription,
+    string Advice,
     string LabNotes,
     DateTime? FollowUpDate,
     DateTime CreatedAt,
-    string DoctorName
+    string DoctorName,
+    Guid? AppointmentId,
+    string ChiefComplaint,
+    string History,
+    string Status,
+    string Weight,
+    string BP,
+    string Temp,
+    string Pulse
 );
 
 public class GetPatientMedicalRecordsQueryHandler : IRequestHandler<GetPatientMedicalRecordsQuery, List<MedicalRecordDto>>
@@ -29,16 +38,25 @@ public class GetPatientMedicalRecordsQueryHandler : IRequestHandler<GetPatientMe
     {
         return await _context.MedicalRecords
             .Include(m => m.Doctor)
-            .Where(m => m.PatientId == request.PatientId)
+            .Where(m => m.PatientId == request.PatientId && m.Status == CarenexaApp.Domain.Enums.MedicalRecordStatus.Completed)
             .OrderByDescending(m => m.CreatedAt)
             .Select(m => new MedicalRecordDto(
                 m.Id,
                 m.Diagnosis,
                 m.Prescription,
+                m.Advice,
                 m.LabNotes,
                 m.FollowUpDate,
                 m.CreatedAt,
-                m.Doctor!.FullName
+                m.Doctor!.FullName,
+                m.AppointmentId,
+                m.ChiefComplaint,
+                m.History,
+                m.Status.ToString(),
+                m.Weight,
+                m.BP,
+                m.Temp,
+                m.Pulse
             ))
             .ToListAsync(cancellationToken);
     }

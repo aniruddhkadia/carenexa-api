@@ -27,10 +27,19 @@ public class GetMedicalRecordByIdQueryHandler : IRequestHandler<GetMedicalRecord
             record.Id,
             record.Diagnosis,
             record.Prescription,
+            record.Advice,
             record.LabNotes,
             record.FollowUpDate,
             record.CreatedAt,
-            record.Doctor!.FullName
+            record.Doctor!.FullName,
+            record.AppointmentId,
+            record.ChiefComplaint,
+            record.History,
+            record.Status.ToString(),
+            record.Weight,
+            record.BP,
+            record.Temp,
+            record.Pulse
         );
     }
 }

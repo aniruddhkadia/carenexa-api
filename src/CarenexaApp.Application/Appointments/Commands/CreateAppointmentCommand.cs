@@ -8,7 +8,9 @@ namespace CarenexaApp.Application.Appointments.Commands;
 public record CreateAppointmentCommand(
     Guid PatientId,
     Guid DoctorId,
+    Guid ClinicId,
     DateTime AppointmentDate,
+    AppointmentType Type,
     string Notes
 ) : IRequest<Guid>;
 
@@ -27,8 +29,10 @@ public class CreateAppointmentCommandHandler : IRequestHandler<CreateAppointment
         {
             PatientId = request.PatientId,
             DoctorId = request.DoctorId,
+            ClinicId = request.ClinicId,
             AppointmentDate = request.AppointmentDate,
-            Status = AppointmentStatus.Booked,
+            Type = request.Type,
+    Status = AppointmentStatus.Booked,
             Notes = request.Notes
         };
 

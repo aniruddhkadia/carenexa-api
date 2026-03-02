@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CarenexaApp.Application.Dashboard.Queries;
 
-public record GetDashboardSummaryQuery(Guid ClinicId) : IRequest<DashboardSummaryDto>;
+public record GetDashboardSummaryQuery(Guid ClinicId, DateTime? Date = null) : IRequest<DashboardSummaryDto>;
 
 public record DashboardSummaryDto(
     int TotalPatients,
@@ -17,6 +17,7 @@ public record DashboardSummaryDto(
 
 public record RecentAppointmentDto(
     Guid Id,
+    Guid PatientId,
     string PatientName,
     DateTime AppointmentDate,
     string Status
@@ -36,7 +37,7 @@ public class GetDashboardSummaryQueryHandler : IRequestHandler<GetDashboardSumma
         var totalPatients = await _context.Patients
             .CountAsync(p => p.ClinicId == request.ClinicId, cancellationToken);
         
-        var today = DateTime.UtcNow.Date;
+        var today = request.Date?.Date ?? DateTime.UtcNow.Date;
         var todaysAppointments = await _context.Appointments
             .CountAsync(a => a.AppointmentDate.Date == today && a.Patient!.ClinicId == request.ClinicId, cancellationToken);
 
@@ -53,11 +54,13 @@ public class GetDashboardSummaryQueryHandler : IRequestHandler<GetDashboardSumma
 
         var recentAppointments = await _context.Appointments
             .Include(a => a.Patient)
-            .Where(a => a.Patient!.ClinicId == request.ClinicId)
-            .OrderByDescending(a => a.AppointmentDate)
-            .Take(5)
+            .Where(a => a.Patient!.ClinicId == request.ClinicId && 
+                        a.AppointmentDate.Date == today &&
+                        a.Status != Domain.Enums.AppointmentStatus.Cancelled)
+            .OrderBy(a => a.AppointmentDate)
             .Select(a => new RecentAppointmentDto(
                 a.Id,
+                a.PatientId,
                 $"{a.Patient!.FirstName} {a.Patient.LastName}",
                 a.AppointmentDate,
                 a.Status.ToString()

@@ -28,6 +28,7 @@ public class GetAppointmentByIdQueryHandler : IRequestHandler<GetAppointmentById
             appointment.PatientId,
             $"{appointment.Patient!.FirstName} {appointment.Patient.LastName}",
             appointment.AppointmentDate,
+            appointment.Type.ToString(),
             appointment.Status.ToString(),
             appointment.Notes
         );

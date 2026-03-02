@@ -1018,11 +1018,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\tests\\CarenexaApp.UnitTests\\CarenexaApp.UnitTests.csproj",
+      "projectUniqueName": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\tests\\CarenexaApp.UnitTests\\CarenexaApp.UnitTests.csproj",
       "projectName": "CarenexaApp.UnitTests",
-      "projectPath": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\tests\\CarenexaApp.UnitTests\\CarenexaApp.UnitTests.csproj",
+      "projectPath": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\tests\\CarenexaApp.UnitTests\\CarenexaApp.UnitTests.csproj",
       "packagesPath": "C:\\Users\\Dell\\.nuget\\packages\\",
-      "outputPath": "D:\\01 Project\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\tests\\CarenexaApp.UnitTests\\obj\\",
+      "outputPath": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\tests\\CarenexaApp.UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
