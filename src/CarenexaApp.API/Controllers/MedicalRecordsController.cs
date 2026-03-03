@@ -19,6 +19,7 @@ public class MedicalRecordsController : ControllerBase
         _mediator = mediator;
     }
 
+<<<<<<< HEAD
     [HttpGet]
     [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
     public async Task<IActionResult> GetAllRecords()
@@ -27,6 +28,8 @@ public class MedicalRecordsController : ControllerBase
         return Ok(result);
     }
 
+=======
+>>>>>>> 6829967ddade774c1ea73506d65fb9d746b4b00c
     [HttpGet("{patientId}/history")]
     [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
     public async Task<IActionResult> GetPatientRecords(Guid patientId)

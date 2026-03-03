@@ -20,7 +20,11 @@ public class GetDoctorFavouritesQueryHandler : IRequestHandler<GetDoctorFavourit
         return await _context.DoctorFavourites
             .Include(f => f.Medicine)
             .Where(f => f.DoctorId == request.DoctorId && f.Medicine!.IsActive)
+<<<<<<< HEAD
             .Select(f => new MedicineDto(f.Medicine!.Id, f.Medicine.GenericName, f.Medicine.BrandName, f.Medicine.Strength, f.Medicine.Form, f.Medicine.IsActive, f.Medicine.CreatedAt))
+=======
+            .Select(f => new MedicineDto(f.Medicine!.Id, f.Medicine.GenericName, f.Medicine.BrandName, f.Medicine.Strength, f.Medicine.Form))
+>>>>>>> 6829967ddade774c1ea73506d65fb9d746b4b00c
             .ToListAsync(cancellationToken);
     }
 }

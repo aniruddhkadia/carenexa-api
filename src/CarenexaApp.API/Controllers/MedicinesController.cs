@@ -20,6 +20,7 @@ public class MedicinesController : ControllerBase
     }
 
     [HttpGet("search")]
+<<<<<<< HEAD
     public async Task<IActionResult> SearchMedicines([FromQuery] string? q)
     {
         if (string.IsNullOrWhiteSpace(q))
@@ -28,6 +29,10 @@ public class MedicinesController : ControllerBase
             return Ok(allMedicines);
         }
 
+=======
+    public async Task<IActionResult> SearchMedicines([FromQuery] string q)
+    {
+>>>>>>> 6829967ddade774c1ea73506d65fb9d746b4b00c
         var result = await _mediator.Send(new SearchMedicinesQuery(q));
         return Ok(result);
     }
@@ -65,6 +70,7 @@ public class MedicinesController : ControllerBase
         if (!result) return NotFound();
         return NoContent();
     }
+<<<<<<< HEAD
 
     [HttpPost]
     [Authorize(Roles = "Admin,SuperAdmin")]
@@ -92,4 +98,6 @@ public class MedicinesController : ControllerBase
         if (!result) return NotFound();
         return NoContent();
     }
+=======
+>>>>>>> 6829967ddade774c1ea73506d65fb9d746b4b00c
 }
