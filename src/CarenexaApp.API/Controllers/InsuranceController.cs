@@ -1,10 +1,10 @@
-using CarenexaApp.Application.Insurance.Commands;
-using CarenexaApp.Application.Insurance.Queries;
+using AroviaApp.Application.Insurance.Commands;
+using AroviaApp.Application.Insurance.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CarenexaApp.API.Controllers;
+namespace AroviaApp.API.Controllers;
 
 [Authorize]
 [ApiController]

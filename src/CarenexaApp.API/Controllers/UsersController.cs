@@ -1,10 +1,11 @@
-using CarenexaApp.Application.Users.Commands;
-using CarenexaApp.Application.Users.Queries;
+using System.Security.Claims;
+using AroviaApp.Application.Users.Commands;
+using AroviaApp.Application.Users.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CarenexaApp.API.Controllers;
+namespace AroviaApp.API.Controllers;
 
 [Authorize]
 [ApiController]
@@ -21,7 +22,7 @@ public class UsersController : ControllerBase
     [HttpGet("profile")]
     public async Task<IActionResult> GetProfile()
     {
-        var userIdClaim = User.FindFirst("Id")?.Value;
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (!Guid.TryParse(userIdClaim, out var userId))
         {
             return BadRequest("User ID not found in token");
@@ -36,7 +37,7 @@ public class UsersController : ControllerBase
     [HttpPut("profile")]
     public async Task<IActionResult> UpdateProfile([FromBody] UpdateProfileCommand command)
     {
-        var userIdClaim = User.FindFirst("Id")?.Value;
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (!Guid.TryParse(userIdClaim, out var userId))
         {
             return BadRequest("User ID not found in token");
@@ -81,5 +82,41 @@ public class UsersController : ControllerBase
         var result = await _mediator.Send(cmdWithClinic);
         
         return Ok(new { id = result });
+    }
+
+    [HttpPut("staff/{id}")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
+    public async Task<IActionResult> UpdateStaff(Guid id, [FromBody] UpdateStaffCommand command)
+    {
+        var clinicIdClaim = User.FindFirst("ClinicId")?.Value;
+        if (!Guid.TryParse(clinicIdClaim, out var clinicId))
+        {
+            return BadRequest("ClinicId not found in token");
+        }
+
+        if (id != command.Id) return BadRequest("ID mismatch");
+
+        var cmdWithClinic = command with { ClinicId = clinicId };
+        var result = await _mediator.Send(cmdWithClinic);
+        
+        if (!result) return NotFound();
+
+        return NoContent();
+    }
+
+    [HttpDelete("staff/{id}")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
+    public async Task<IActionResult> DeleteStaff(Guid id)
+    {
+        var clinicIdClaim = User.FindFirst("ClinicId")?.Value;
+        if (!Guid.TryParse(clinicIdClaim, out var clinicId))
+        {
+            return BadRequest("ClinicId not found in token");
+        }
+
+        var result = await _mediator.Send(new DeleteStaffCommand(id, clinicId));
+        if (!result) return NotFound();
+
+        return NoContent();
     }
 }

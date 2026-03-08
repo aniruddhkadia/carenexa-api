@@ -1,11 +1,11 @@
-using CarenexaApp.Application.MedicalRecords.Commands;
-using CarenexaApp.Application.MedicalRecords.Queries;
+using AroviaApp.Application.MedicalRecords.Commands;
+using AroviaApp.Application.MedicalRecords.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace CarenexaApp.API.Controllers;
+namespace AroviaApp.API.Controllers;
 
 [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
 [ApiController]
@@ -20,24 +20,20 @@ public class MedicinesController : ControllerBase
     }
 
     [HttpGet("search")]
-<<<<<<< HEAD
-    public async Task<IActionResult> SearchMedicines([FromQuery] string? q)
+    public async Task<IActionResult> SearchMedicines([FromQuery] string? q, [FromQuery] int page = 1, [FromQuery] int pageSize = 50)
     {
         if (string.IsNullOrWhiteSpace(q))
         {
-            var allMedicines = await _mediator.Send(new GetMedicinesQuery());
+            var allMedicines = await _mediator.Send(new GetMedicinesQuery(page, pageSize));
             return Ok(allMedicines);
         }
 
-=======
-    public async Task<IActionResult> SearchMedicines([FromQuery] string q)
-    {
->>>>>>> 6829967ddade774c1ea73506d65fb9d746b4b00c
-        var result = await _mediator.Send(new SearchMedicinesQuery(q));
+        var result = await _mediator.Send(new SearchMedicinesQuery(q, page, pageSize));
         return Ok(result);
     }
 
     [HttpGet("favourites")]
+    [Authorize(Roles = "Doctor")]
     public async Task<IActionResult> GetFavourites()
     {
         var doctorIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -49,6 +45,7 @@ public class MedicinesController : ControllerBase
     }
 
     [HttpPost("favourites")]
+    [Authorize(Roles = "Doctor")]
     public async Task<IActionResult> AddFavourite([FromBody] Guid medicineId)
     {
         var doctorIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -60,6 +57,7 @@ public class MedicinesController : ControllerBase
     }
 
     [HttpDelete("favourites/{id}")]
+    [Authorize(Roles = "Doctor")]
     public async Task<IActionResult> RemoveFavourite(Guid id)
     {
         var doctorIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -70,10 +68,9 @@ public class MedicinesController : ControllerBase
         if (!result) return NotFound();
         return NoContent();
     }
-<<<<<<< HEAD
 
     [HttpPost]
-    [Authorize(Roles = "Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Admin,SuperAdmin")]
     public async Task<IActionResult> CreateMedicine([FromBody] CreateMedicineCommand command)
     {
         var result = await _mediator.Send(command);
@@ -98,6 +95,4 @@ public class MedicinesController : ControllerBase
         if (!result) return NotFound();
         return NoContent();
     }
-=======
->>>>>>> 6829967ddade774c1ea73506d65fb9d746b4b00c
 }

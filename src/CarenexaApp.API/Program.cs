@@ -1,11 +1,12 @@
 using System.Text;
-using CarenexaApp.Application;
-using CarenexaApp.Infrastructure;
-using CarenexaApp.Infrastructure.Data;
+using AroviaApp.Application;
+using AroviaApp.Infrastructure;
+using AroviaApp.Infrastructure.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Serilog;
-using CarenexaApp.API.Middleware;
+using AroviaApp.API.Middleware;
+using AroviaApp.Application.Common.Interfaces;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,8 +31,11 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddApplication();
 builder.Services.AddInfrastructure(builder.Configuration);
 
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ICurrentUserService, AroviaApp.API.Services.CurrentUserService>();
+
 // Add JWT Authentication
-var secretKey = builder.Configuration["JwtSettings:Secret"] ?? "a_very_long_and_secure_secret_key_for_carenexa_mvp_2026";
+var secretKey = builder.Configuration["JwtSettings:Secret"] ?? "a_very_long_and_secure_secret_key_for_arovia_mvp_2026";
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -41,8 +45,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateAudience = true,
             ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["JwtSettings:Issuer"] ?? "CarenexaApp",
-            ValidAudience = builder.Configuration["JwtSettings:Audience"] ?? "CarenexaAppUsers",
+            ValidIssuer = builder.Configuration["JwtSettings:Issuer"] ?? "AroviaApp",
+            ValidAudience = builder.Configuration["JwtSettings:Audience"] ?? "AroviaAppUsers",
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
         };
     });

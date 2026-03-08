@@ -1,10 +1,10 @@
-using CarenexaApp.Application.Patients.Commands;
-using CarenexaApp.Application.Patients.Queries;
+using AroviaApp.Application.Patients.Commands;
+using AroviaApp.Application.Patients.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CarenexaApp.API.Controllers;
+namespace AroviaApp.API.Controllers;
 
 [Authorize]
 [ApiController]
@@ -19,7 +19,7 @@ public class PatientsController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Nurse,Staff,Admin,SuperAdmin")]
     public async Task<IActionResult> GetPatients([FromQuery] string? q, [FromQuery] int page = 1, [FromQuery] int pageSize = 20)
     {
         var clinicIdClaim = User.FindFirst("ClinicId")?.Value;
@@ -33,7 +33,7 @@ public class PatientsController : ControllerBase
     }
 
     [HttpGet("search")]
-    [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Nurse,Staff,Admin,SuperAdmin")]
     public async Task<IActionResult> SearchPatients([FromQuery] string q)
     {
         var clinicIdClaim = User.FindFirst("ClinicId")?.Value;
@@ -47,7 +47,7 @@ public class PatientsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Nurse,Staff,Admin,SuperAdmin")]
     public async Task<IActionResult> GetPatientById(Guid id)
     {
         var clinicIdClaim = User.FindFirst("ClinicId")?.Value;
@@ -63,7 +63,7 @@ public class PatientsController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Roles = "Doctor,Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Staff,Admin,SuperAdmin")]
     public async Task<IActionResult> CreatePatient([FromBody] CreatePatientCommand command)
     {
         var clinicIdClaim = User.FindFirst("ClinicId")?.Value;
@@ -86,7 +86,7 @@ public class PatientsController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    [Authorize(Roles = "Doctor,Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Staff,Admin,SuperAdmin")]
     public async Task<IActionResult> UpdatePatient(Guid id, [FromBody] UpdatePatientCommand command)
     {
         var clinicIdClaim = User.FindFirst("ClinicId")?.Value;

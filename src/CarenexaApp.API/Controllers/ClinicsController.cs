@@ -1,10 +1,10 @@
-using CarenexaApp.Application.Clinics.Commands;
-using CarenexaApp.Application.Clinics.Queries;
+using AroviaApp.Application.Clinics.Commands;
+using AroviaApp.Application.Clinics.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CarenexaApp.API.Controllers;
+namespace AroviaApp.API.Controllers;
 
 [Authorize]
 [ApiController]
@@ -19,7 +19,7 @@ public class ClinicsController : ControllerBase
     }
 
     [HttpGet("my-clinic")]
-    [Authorize(Roles = "Admin,SuperAdmin,Doctor")]
+    [Authorize(Roles = "Admin,SuperAdmin,Doctor,Nurse,Staff")]
     public async Task<IActionResult> GetMyClinic()
     {
         var clinicIdClaim = User.FindFirst("ClinicId")?.Value;

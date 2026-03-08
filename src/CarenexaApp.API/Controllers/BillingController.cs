@@ -1,10 +1,10 @@
-using CarenexaApp.Application.Billing.Commands;
-using CarenexaApp.Application.Billing.Queries;
+using AroviaApp.Application.Billing.Commands;
+using AroviaApp.Application.Billing.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CarenexaApp.API.Controllers;
+namespace AroviaApp.API.Controllers;
 
 [Authorize(Roles = "Admin,SuperAdmin")]
 [ApiController]

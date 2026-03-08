@@ -1,8 +1,8 @@
-using CarenexaApp.Application.Auth.Commands;
+using AroviaApp.Application.Auth.Commands;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CarenexaApp.API.Controllers;
+namespace AroviaApp.API.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
@@ -20,12 +20,16 @@ public class AuthController : ControllerBase
     {
         var result = await _mediator.Send(command);
 
-        if (result == null)
+        if (!result.Success)
         {
-            return Unauthorized(new { message = "Invalid email or password" });
+            if (result.IsInactive)
+            {
+                return StatusCode(403, new { message = result.ErrorMessage });
+            }
+            return Unauthorized(new { message = result.ErrorMessage });
         }
 
-        return Ok(result);
+        return Ok(result.Response);
     }
 
     [HttpPost("refresh")]

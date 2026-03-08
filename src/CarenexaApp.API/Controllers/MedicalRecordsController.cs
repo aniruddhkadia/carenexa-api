@@ -1,11 +1,11 @@
-using CarenexaApp.Application.MedicalRecords.Commands;
-using CarenexaApp.Application.MedicalRecords.Queries;
+using AroviaApp.Application.MedicalRecords.Commands;
+using AroviaApp.Application.MedicalRecords.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace CarenexaApp.API.Controllers;
+namespace AroviaApp.API.Controllers;
 
 [Authorize]
 [ApiController]
@@ -19,19 +19,16 @@ public class MedicalRecordsController : ControllerBase
         _mediator = mediator;
     }
 
-<<<<<<< HEAD
     [HttpGet]
-    [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
-    public async Task<IActionResult> GetAllRecords()
+    [Authorize(Roles = "Doctor,Admin,SuperAdmin")]
+    public async Task<IActionResult> GetAllRecords([FromQuery] int page = 1, [FromQuery] int pageSize = 50)
     {
-        var result = await _mediator.Send(new GetAllMedicalRecordsQuery());
+        var result = await _mediator.Send(new GetAllMedicalRecordsQuery(page, pageSize));
         return Ok(result);
     }
 
-=======
->>>>>>> 6829967ddade774c1ea73506d65fb9d746b4b00c
     [HttpGet("{patientId}/history")]
-    [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Admin,SuperAdmin")]
     public async Task<IActionResult> GetPatientRecords(Guid patientId)
     {
         var result = await _mediator.Send(new GetPatientMedicalRecordsQuery(patientId));
@@ -39,7 +36,7 @@ public class MedicalRecordsController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Admin,SuperAdmin")]
     public async Task<IActionResult> GetMedicalRecordById(Guid id)
     {
         var result = await _mediator.Send(new GetMedicalRecordByIdQuery(id));

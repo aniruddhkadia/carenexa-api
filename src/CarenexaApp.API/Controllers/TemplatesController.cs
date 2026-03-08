@@ -1,11 +1,11 @@
-using CarenexaApp.Application.MedicalRecords.Commands;
-using CarenexaApp.Application.MedicalRecords.Queries;
+using AroviaApp.Application.MedicalRecords.Commands;
+using AroviaApp.Application.MedicalRecords.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace CarenexaApp.API.Controllers;
+namespace AroviaApp.API.Controllers;
 
 [Authorize(Roles = "Doctor")]
 [ApiController]

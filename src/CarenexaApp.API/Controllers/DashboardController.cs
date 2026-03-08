@@ -1,9 +1,9 @@
-using CarenexaApp.Application.Dashboard.Queries;
+using AroviaApp.Application.Dashboard.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CarenexaApp.API.Controllers;
+namespace AroviaApp.API.Controllers;
 
 [Authorize]
 [ApiController]
@@ -18,6 +18,7 @@ public class DashboardController : ControllerBase
     }
 
     [HttpGet("summary")]
+    [Authorize(Roles = "Admin,SuperAdmin,Doctor")]
     public async Task<IActionResult> GetSummary([FromQuery] DateTime? date)
     {
         var clinicIdClaim = User.FindFirst("ClinicId")?.Value;
@@ -31,6 +32,7 @@ public class DashboardController : ControllerBase
     }
 
     [HttpGet("activity")]
+    [Authorize(Roles = "Admin,SuperAdmin")]
     public async Task<IActionResult> GetActivity()
     {
         var clinicIdClaim = User.FindFirst("ClinicId")?.Value;
@@ -44,6 +46,7 @@ public class DashboardController : ControllerBase
     }
 
     [HttpGet("completed-visits")]
+    [Authorize(Roles = "Admin,SuperAdmin,Doctor")]
     public async Task<IActionResult> GetCompletedVisits([FromQuery] DateTime date)
     {
         var clinicIdClaim = User.FindFirst("ClinicId")?.Value;

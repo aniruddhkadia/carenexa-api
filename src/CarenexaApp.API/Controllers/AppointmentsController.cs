@@ -1,11 +1,11 @@
-using CarenexaApp.Application.Appointments.Commands;
-using CarenexaApp.Application.Appointments.Queries;
+using AroviaApp.Application.Appointments.Commands;
+using AroviaApp.Application.Appointments.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace CarenexaApp.API.Controllers;
+namespace AroviaApp.API.Controllers;
 
 [Authorize]
 [ApiController]
@@ -20,7 +20,7 @@ public class AppointmentsController : ControllerBase
     }
 
     [HttpGet("today")]
-    [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Nurse,Staff,Admin,SuperAdmin")]
     public async Task<IActionResult> GetTodayAppointments()
     {
         var doctorIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -34,7 +34,7 @@ public class AppointmentsController : ControllerBase
     }
 
     [HttpGet("calendar")]
-    [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Nurse,Staff,Admin,SuperAdmin")]
     public async Task<IActionResult> GetCalendarAppointments([FromQuery] int month, [FromQuery] int year)
     {
         var doctorIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -50,7 +50,7 @@ public class AppointmentsController : ControllerBase
     }
 
     [HttpGet]
-    [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Nurse,Staff,Admin,SuperAdmin")]
     public async Task<IActionResult> GetAppointments([FromQuery] DateTime? date)
     {
         var doctorIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -63,8 +63,16 @@ public class AppointmentsController : ControllerBase
         return Ok(result);
     }
 
+    [HttpGet("patient/{patientId}")]
+    [Authorize(Roles = "Doctor,Nurse,Staff,Admin,SuperAdmin")]
+    public async Task<IActionResult> GetPatientAppointments(Guid patientId)
+    {
+        var result = await _mediator.Send(new GetPatientAppointmentsQuery(patientId));
+        return Ok(result);
+    }
+
     [HttpGet("{id}")]
-    [Authorize(Roles = "Doctor,Nurse,Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Nurse,Staff,Admin,SuperAdmin")]
     public async Task<IActionResult> GetAppointmentById(Guid id)
     {
         var doctorIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -80,7 +88,7 @@ public class AppointmentsController : ControllerBase
     }
 
     [HttpPost]
-    [Authorize(Roles = "Doctor,Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Staff,Admin,SuperAdmin")]
     public async Task<IActionResult> CreateAppointment([FromBody] CreateAppointmentCommand command)
     {
         var doctorIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -98,7 +106,7 @@ public class AppointmentsController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    [Authorize(Roles = "Doctor,Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Staff,Admin,SuperAdmin")]
     public async Task<IActionResult> UpdateAppointment(Guid id, [FromBody] UpdateAppointmentCommand command)
     {
         var doctorIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
@@ -118,8 +126,8 @@ public class AppointmentsController : ControllerBase
     }
 
     [HttpPatch("{id}/status")]
-    [Authorize(Roles = "Doctor,Admin,SuperAdmin")]
-    public async Task<IActionResult> UpdateAppointmentStatus(Guid id, [FromBody] CarenexaApp.Domain.Enums.AppointmentStatus status)
+    [Authorize(Roles = "Doctor,Staff,Admin,SuperAdmin")]
+    public async Task<IActionResult> UpdateAppointmentStatus(Guid id, [FromBody] AroviaApp.Domain.Enums.AppointmentStatus status)
     {
         var doctorIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (!Guid.TryParse(doctorIdClaim, out var doctorId))
@@ -135,7 +143,7 @@ public class AppointmentsController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    [Authorize(Roles = "Admin,SuperAdmin")]
+    [Authorize(Roles = "Doctor,Staff,Admin,SuperAdmin")]
     public async Task<IActionResult> DeleteAppointment(Guid id)
     {
         var doctorIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

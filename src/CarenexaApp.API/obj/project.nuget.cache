@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "qcHbDxrFMVA=",
+  "dgSpecHash": "CS28ARLsRE8=",
   "success": true,
-  "projectFilePath": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\carenexa-api\\src\\CarenexaApp.API\\CarenexaApp.API.csproj",
+  "projectFilePath": "D:\\GitProjects\\PatientClinic\\CarenexaAppDetail\\arovia-api\\src\\CarenexaApp.API\\AroviaApp.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Dell\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\Dell\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

@@ -1,8 +1,8 @@
 using System.Security.Claims;
-using CarenexaApp.Application.Common.Interfaces;
-using CarenexaApp.Domain.Entities;
+using AroviaApp.Application.Common.Interfaces;
+using AroviaApp.Domain.Entities;
 
-namespace CarenexaApp.API.Middleware;
+namespace AroviaApp.API.Middleware;
 
 public class AuditLoggingMiddleware
 {
